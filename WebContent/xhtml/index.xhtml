@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+ <title>Sistema ARARA - Gestão de Risco</title>
+ <link rel="StyleSheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/global.css" media="screen" />
+</h:head>
+<f:view>
+ 
+  <h3>Sistema ARARA</h3>
+  <br />
+  <h:form id="form_arara">
+  <p:panel header="Escolha uma opção:">
+   <p:commandButton id="btn_classificar" value="Classificação de tweets" action="#{controleBean.classificarTweets}" ajax="false" />
+   <p:commandButton id="btn_gestao" value="Gesão de riscos" ajax="false" />
+  </p:panel>
+ </h:form>
+</f:view>
+</html>

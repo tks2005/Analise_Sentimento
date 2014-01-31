@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+ <title>Sistema ARARA - Gestão de Risco</title>
+ <link rel="StyleSheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/global.css" media="screen" />
+</h:head>
+<f:view>
+ <h:form>
+  <h3>Classificação de tweets</h3>
+  <br />
+  <p:panel header="Digite um termo para busca:">
+   <p:inputText id="termoDeBusca" value="#{classificacaoBean.termoBusca}" />
+   <p:commandButton value="Buscar" action="#{classificacaoBean.buscarEClassificar}" ajax="false" />
+
+   <div align="right">
+    <p:panelGrid columns="3" styleClass="semBorda" rendered="#{classificacaoBean.renderizaComponentes}">
+     <h:outputText value="Classificar tweets como: " />
+     <p:selectOneMenu value="#{classificacaoBean.classificacao}">
+      <f:selectItem itemLabel="Positivos" itemValue="1" />
+      <f:selectItem itemLabel="Negativos" itemValue="0" />
+      <f:selectItem itemLabel="Neutros" itemValue="2" />
+     </p:selectOneMenu>
+     <p:commandButton value="Salvar" action="#{classificacaoBean.classificarTweets}" ajax="false" />
+    </p:panelGrid>
+   </div>
+   <br />
+   <p:dataTable value="#{classificacaoBean.tweets}" var="tweet" emptyMessage="Nenhum tweet foi encontrado" paginator="true"
+    rows="20" paginatorTemplate="{PreviousPageLink} {PageLinks} {NextPageLink}" rowStyleClass="#{tweet.formatacao}"
+    selectionMode="multiple" selection="#{classificacaoBean.tweetsSelecionados}" rowKey="#{tweet.id}"
+    rendered="#{classificacaoBean.renderizaComponentes}">
+
+    <p:column>
+     <f:facet name="header">
+      <h:outputText value="Usuário" />
+     </f:facet>
+     <h:outputText value="#{tweet.nomeUser}" />
+    </p:column>
+
+    <p:column>
+     <f:facet name="header">
+      <h:outputText value="Tweet" />
+     </f:facet>
+     <h:outputText value="#{tweet.tweet}" />
+    </p:column>
+
+   </p:dataTable>
+   <br />
+
+   <div align="right">
+    <p:commandButton value="Voltar" action="#{classificacaoBean.voltar}" ajax="false" />
+   </div>
+  </p:panel>
+ </h:form>
+</f:view>
+</html>
