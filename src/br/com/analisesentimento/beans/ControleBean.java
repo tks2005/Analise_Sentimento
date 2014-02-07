@@ -13,6 +13,10 @@ public class ControleBean {
   public String classificarTweets () {
     return "classificacao";
   }
+  
+  public String gestao () {
+    return "gestao";
+  }
 
   public String index () {
     return "index";

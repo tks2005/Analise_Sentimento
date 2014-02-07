@@ -108,7 +108,6 @@ public class ClassificacaoBean {
     termoBusca = null;
     tweets.clear();
     tweetsSelecionados.clear();
-    ;
   }
 
   public boolean getRenderizaComponentes () {

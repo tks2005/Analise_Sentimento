@@ -21,7 +21,7 @@ public class BDUtil {
 	}
 
 	private Connection criaConexao() {
-		String conexao = "jdbc:sqlserver://HOMOLOGA-DEV\\SQL2008EX;databaseName=PESQUISA_TWEET;user=pesquisa_tweet;password=1234;";
+		String conexao = "jdbc:sqlserver://10.0.160.146\\SQLDUKE;databaseName=PESQUISA_TWEET;user=pesquisa_tweet;password=1234;";
 		Connection conn = null;
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
